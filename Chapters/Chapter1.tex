@@ -1,0 +1,182 @@
+% Chapter 1
+
+\chapter{Introduction} % Main chapter title
+\label{Chapter1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+\lhead{Chapter 1. \emph{Introduction}} % This is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+
+\noindent With the bloom of digital data revolution, a plethora of data being collected and shared. Today’s penetrating phenomenon of big data is open data, which is in liquid format and valued more by being shared and accessed  than closed data. The openness is ensured by enabling interoperability in open data such that the published data can be understood and used similarly by all users. Main process of open data management includes transforming raw data into a commonly understandable format, sharing or hosting them via a publicly accessible medium, integrating them with other data, visualizing and/or analyzing the data using smarter and simpler queries. A open data publisher/user should be able to publish/access data seamlessly regardless of the size of data. In any big data processing activity such as data mining, data analytic or data sharing, data preparation is a tedious, time consuming step and mostly a compulsory step to receive the optimal value from data. Due to the increase in the need of data preparation, there are some initiatives who try to provide simpler and easier means for data preparation. However, they address only a subset of data preparation needs and/or they are not very simple and cheap solutions. Especially, open data preparation has its unique needs which are not solved to an expected and reachable level yet. In this thesis, we suggest a scalable interactive data transformation as a service especially for open data.
+
+Since we use few terms a lot in this thesis, we here with define them to avoid ambiguity and to come to a common understanding of the context discussed. 
+Open data :Open data is a data that can be used, re-used and redistributed without any legal or technical limitations. 
+Openness of in this context is defined by below properties
+1Accessibility and availability: 
+2
+3
+These properties are achieved by injecting interoperability in data.
+Interoperability is considered as the ability to be understood and used universaly. This problem is addressed by publishing open data in linked data format. Especially,  open data has to be human understandable and machine understandable. 
+RDF Format : This involves additional data preparation step which is transforming data to RDF Format. 
+
+As the need for open data sharing is increasing, there are some  initiatives that try  solve these needs. However, such initiatives only address a subset of needs such as either data cleaning or transformation (or any other combinations of the activities in the data sharing process\textbf{ confusing??/)}.  In this thesis, we explore how can we provide a scalable open data sharing needs as a service by eliminating current limitations. 
+
+
+
+
+Definitions  
+Open data 
+
+Linked data 
+
+Data tranformation in open data : combination of data cleanging and transformation it to RDF
+
+Data cleaning 
+Scalable
+
+Near real time 
+Interactive transformation 
+
+Linked Data
+Open data is commonly shared in Linked Data format, which is defined as a set of best practices for publishing and connecting structured data on the web\cite{linkeddatasofar}.  Open governments, public administrations and other commercial organizations have recently started publishing large amount of structured data. There 
+
+Open data is the data that can be used, re-used and redistributed by anyone without any limitations or at minimal limitations\cite{opendatahandbook}. 
+
+
+%----------------------------------------------------------------------------------------
+
+\section{Research Motivation}
+
+In this section we outline several reasons how the research presented in this paper  addresses important concerns of 
+related work 
+explain the archi
+open refine
+trifacta
+ibm dataworks
+talent 
+lightweight transformation of tabular open data to rdf
+similar solutions address the domain and what they lack and how they are related to our work
+
+
+\subsection{Background}
+
+\noindent As we mentioned earlier, important challenges during 
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Motivating Scenario}
+DataGraft.net, a cloud based open data sharing platform tries to address all these needs together as a service. However, it has limitations of transforming large data.
+\noindent To have a better understanding of the previously discussed challenges and approaches, the following motivating scenario has been developed: 
+introduce datagraft in detail, how it address the common needs in big picture. 
+architecture
+todays limitations in data transformation.
+
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Discussion}
+\label{sec:Discussion}
+why this limitation
+who eliminating this can help 
+what is expected from this?
+
+%----------------------------------------------------------------------------------------
+
+\section{Research Problem}
+
+\noindent In this work we focus on two challenges: (i) combination of the declarative and imperative approaches to the application provisioning and deployment, and (ii) continuous deployment of cloud applications. Based on this, the research problem may be formulated as follows: 
+
+How to transform larger data without technical knowledge
+how interactive transformation of large files can be done in near-real-time?
+
+\begin{center}
+"How can we enable both, flexibility and fine-grained control, in the deployment and provisioning of multi-cloud applications, and allow efficient run-time management of such applications?"
+\end{center}
+
+\section{Research Questions} 
+
+\noindent The problem addressed by this thesis rises the following questions:
+
+\begin{enumerate}
+\item  How imperative and declarative approaches can be combined? Does a combined approach furnish a more efficient and flexible solution?
+
+\item  How to create a DSL for the specification of deployment plans that can be used in combination with declarative deployment topology models, and programmatically by a third party?
+
+\item  How such DSL could be used to support efficient continuous deployment of multi-cloud applications?
+
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+
+\section{Research Methodology}
+In this section we explain our research methodology and develop a research work plan.
+
+%----------------------------------------------------------------------------------------
+\subsection{Methodology}
+
+\noindent The adopted methodology of this thesis relies on a literature survey and design science \cite{von2004design}. Literature survey covers not only publications in scientific journals but also analysis of widely used tools because provisioning and deployment processes relate more to the practical side of computer science than its theoretical underpinnings. Design science guidelines help us in the development of our solution and ensuring that our results are relevant, verifiable and appropriately evaluated.
+
+%----------------------------------------------------------------------------------------
+\subsection{Work Plan}
+Following the discussion from the Section \ref{sec:Discussion} and, according to the research problem, we can define the initial set up for the research: the approach that we will work on must be declarative, open source and provide support for the continuous deployment. Then, the work plan to answer research questions includes the following steps:
+
+\begin{enumerate}
+\item  Analyze state of the art tools and approaches for 
+
+\item  Choose a declarative approach for the improvement.
+
+\item  Analyze how deployments plans are defined in imperative approaches. Extract common characteristics and limitations of languages used to define deployment plans, and create a domain-specific workflow definition language to specify such plans.
+
+\item  Integrate a chosen approach, including the continuous deployment functionality, with created DSL.
+
+\end{enumerate}
+
+\noindent The rest of the thesis is organized as follows. In Chapter 
+
+solution analysis - state of the art spark
+Dataframe 
+feasibility test
+dataframe performace tests
+https://databricks.com/blog/2015/02/17/introducing-dataframes-in-spark-for-large-scale-data-science.html
+
+https://0x0fff.com/spark-dataframes-are-faster-arent-they/
+
+implementation - Scalable transformation of open data
+
+problem
+archi- should explain clearly for backend n front-end 
+solution components
+sparker
+scalable-graftwerk
+grafterizer
+deployment - possible on local and cluster 
+
+evaluation
+
+Integration n usability
+
+functional coverage- how much persisted from earlier, how much can be added newly
+consistency-
+reliability - no sandbox
+scalability
+availability
+
+Performance evaluation
+
+experiment setup
+
+of single machine - oldgraftwerk , sparker on local, open refine
+
+for different file size, same pipeline
+
+trifacta, open refine, setup on cluster
+
+conclusions
+posible transformation for big data. without limitation. can be hosted in local cluster is provided service is not enough. the limitation is eliminated. 
+technical contributions
+scientific contributions
+
+appendix
+
+
+%----------------------------------------------------------------------------------------
