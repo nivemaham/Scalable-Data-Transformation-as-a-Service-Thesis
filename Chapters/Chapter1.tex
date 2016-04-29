@@ -7,176 +7,237 @@
 
 %----------------------------------------------------------------------------------------
 
-\noindent With the bloom of digital data revolution, a plethora of data being collected and shared. Today’s penetrating phenomenon of big data is open data, which is in liquid format and valued more by being shared and accessed  than closed data. The openness is ensured by enabling interoperability in open data such that the published data can be understood and used similarly by all users. Main process of open data management includes transforming raw data into a commonly understandable format, sharing or hosting them via a publicly accessible medium, integrating them with other data, visualizing and/or analyzing the data using smarter and simpler queries. A open data publisher/user should be able to publish/access data seamlessly regardless of the size of data. In any big data processing activity such as data mining, data analytic or data sharing, data preparation is a tedious, time consuming step and mostly a compulsory step to receive the optimal value from data. Due to the increase in the need of data preparation, there are some initiatives who try to provide simpler and easier means for data preparation. However, they address only a subset of data preparation needs and/or they are not very simple and cheap solutions. Especially, open data preparation has its unique needs which are not solved to an expected and reachable level yet. In this thesis, we suggest a scalable interactive data transformation as a service especially for open data.
+\noindent With the bloom of digital data revolution, a plethora of data being collected and shared. Today’s penetrating phenomenon of big data is open data, which is available in liquid format and valued more  than closed data by being shared and accessed\citep{opendataunlockinginnovation}. Making data more liquid essentially means providing open, widely available data in shareable formats \cite{opendataunlockinginnovation}. The openness is ensured by publishing open data in a way that can be understood and used similarly by all users\cite{opendatahandbook}. Main process of open data management includes transforming raw data into a commonly understandable format, sharing or hosting them via a publicly accessible medium, integrating them with other data, visualizing and/or analyzing the data using smarter and simpler queries\cite{howlinkeddataistransforminggovernment}.Despite of the prominent evident in rise of open data era, producing and sharing  open data with required quality remains non-trivial\cite{towardsopendatadevelopmentmodelforlinkeddata} due to lack of fully fledged solutions. 
 
-Since we use few terms a lot in this thesis, we here with define them to avoid ambiguity and to come to a common understanding of the context discussed. 
-Open data :Open data is a data that can be used, re-used and redistributed without any legal or technical limitations. 
-Openness of in this context is defined by below properties
-1Accessibility and availability: 
-2
-3
-These properties are achieved by injecting interoperability in data.
-Interoperability is considered as the ability to be understood and used universaly. This problem is addressed by publishing open data in linked data format. Especially,  open data has to be human understandable and machine understandable. 
-RDF Format : This involves additional data preparation step which is transforming data to RDF Format. 
-
-As the need for open data sharing is increasing, there are some  initiatives that try  solve these needs. However, such initiatives only address a subset of needs such as either data cleaning or transformation (or any other combinations of the activities in the data sharing process\textbf{ confusing??/)}.  In this thesis, we explore how can we provide a scalable open data sharing needs as a service by eliminating current limitations. 
-
-
-
-
-Definitions  
-Open data 
-
-Linked data 
-
-Data tranformation in open data : combination of data cleanging and transformation it to RDF
-
-Data cleaning 
-Scalable
-
-Near real time 
-Interactive transformation 
-
-Linked Data
-Open data is commonly shared in Linked Data format, which is defined as a set of best practices for publishing and connecting structured data on the web\cite{linkeddatasofar}.  Open governments, public administrations and other commercial organizations have recently started publishing large amount of structured data. There 
-
-Open data is the data that can be used, re-used and redistributed by anyone without any limitations or at minimal limitations\cite{opendatahandbook}. 
-
+\noindent Notably, data preparation is a tedious, time consuming step and mostly a compulsory step to receive the optimal value from data in any data processing activity\cite{datapreparationfordatamining}. As the need grows, there are some initiatives who try to provide simpler and easier means for data preparation. However, they address only a subset of open data preparation requirements and/or they are not very simple and cheap solutions\cite{ligthweightopendatatransformation}\cite{cleaningprobsandapproaches}\cite{declarativedatacleaning}\cite{visualizationsandtransformationsinwrangling}. They often require technically skilled resources (to implement domain specific solutions using selected techniques or technologies) and a significant investment of time and money (buying commercial products and maintaining them). Particularly, open data preparation has its unique demand which are not solved to an expected and reachable level yet. In this thesis, we suggest a scalable interactive data transformation as a service based solution especially for open data users. We suggest a solution to do data preparations with interactive user interface that can render data transformation results in near-real-time even for large data-sets. Finally we evaluate it by bench marking it with existing solutions.
 
 %----------------------------------------------------------------------------------------
+\section{Background}
+Open data and open data management is relatively a new context, the interpretation of few terms are still changing while there is no common agreement of few terms yet.  To avoid ambiguity of the content and to give clear understanding of rest of the content, we discuss few important terms which are often used in this article. 
+\subsection{Open Data}
+Open data is often derived from the definition of "Open". A material is considered as open \textit{if it is free to access, use, modify, and share - subject, at most, to measures that preserve provenance and openness}. Any open works must satisfy open license or status, access, machine readability and open format\cite{opendefinition}. So do open data. These properties can be reached by introducing  interoperability in data. Interoperability is considered as the ability to be understood and used universally\cite{opendatahandbook}. It is important because it allows different partners to work together on top of agreed commons. In the context of open data interoperability it is vital, as it is the crutch to let different partners to work together. Open data frequently referred as liquid data due to these properties. The liquidity of open data is achieved by publishing in Linked Data format which is mostly called Linked Open Data (LOD). 
+
+\subsection{Open Big Data}
+todo
+
+\subsection{Linked Data and RDF Format}
+Linked data is the data published on the Web in a way it is machine readable\cite{linkeddatasofar}. The meaning of data is explicitly defined in machine understandable format, then it is linked to the core data. Simply, linked data is data that is connected using typed links from different sources.  Linked data relies on formulating data in Resource Description Framework (RDF) format\cite{rdfdefinition}. 
+ 
+RDF Format : RDF represents a data with a generic graph-based data model\cite{linkeddatasofar} with which to structure data and describe it. RDF model encodes data in the form of subject, predicate, object triples. The subject and object are both URIs or a URI and a string literal to identify respective resources. Predicate mentions the relationship between subject and object, where is also represented by a URI. The resource to describe RDF entities are called vocabularies, which are collections of domain specific classes and properties. RDF Vocabulary Definition Language (RDFS) \cite{rdfsdefinition} and Web Ontology Language (OWL) \cite{owldefinition}  provide the foundation for creating vocabularies. By engaging URIs to identify resources, RDF to represent data resources and HTTP protocol as retrieval mechanism LOD is rendered similar to general architecture of Web which contains a layer of interwoven document data. 
+
+\subsection{Open Data Preparation - Data cleansing and RDF transformation}
+Before publishing open data it is important that the data being published is complete, self contained that can be used by anyone. To date, open data are derived from legacy databases, or from static logs, or\cite{collaborativeopendataversioning} in silos of huge Comma Separated Values (CSV) files or Excel spreadsheets\cite{ETL}. These data are typically messy (with errors, missing values, and consistencies) and cannot be immediately transformed into RDF format. Thus data cleansing is important prerequisite for open data preparation before it is mapped to create RDF format. Open data preparation has two main sub-processes such as open data transformation and RDF creation.The usual life-cycle of creation of LOP consists raw data cleaning, transformation (mostly from tabular formats), mapping to ontology and generating semantic RDF graph\cite{datagraftsimplyfyingopendatapublishing}.  This process can be compared to Extract, Transform and Loading (ETL) operations\cite{collaborativeopendataversioning}. The major categories of cleansing and transformation operations are 
+\begin{enumerate}
+\item Analysis: Data analysis, statistical evaluation and data mining algorithms
+\item Profiling: Identify and solve data quality problems (e.g. Misspellings, Cryptic values and abbreviations, Misfiled values and Word transposition) \cite{datacleaningprobsandapproaches}
+\item Transformation: Operations to modify the data to fit the target schema (e.g. Embedded value,  Duplicate records, Pivoting and Un-pivoting, Slowly Changing Dimensions (SCD), Surrogate keys)\cite{datacleaningprobsandapproaches}\cite{ETL}
+\item Cleaning: Detecting, removing and correcting dirty data together with schema-related transformation based on comprehensive meta-data (e.g. String problems). \cite{datacleaningprobsandapproaches}
+\item Duplicate elimination: Identifying and merging duplicate records (e.g. Full duplicates and grouped duplicates)
+\item Enrichment: Using additional information to improve data quality (e.g. Surrogate keys, SCD)\cite{ETL}
+\end{enumerate}
+These are typically needed in most of the transformation tools. However, for our case we consider analysis as rather a post step where a fully fledged analysis can be performed on top of integrated RDF data. The rest of the five categories are mostly used to help user to create a perfect 'fit for purpose' data from messy data. 
 
 \section{Research Motivation}
+The hype of "open data movement" made many governments and non-profit organizations(NGO) to publish their data. Nevertheless, the published data remains ineffective since it is nonfunctional without prescribed interoperability. Statistics says that 80\% of data in publicdata.eu which aggregates data from 30 European data portals are in tabular formats (Excel sheets or CSV files)\cite{nemreport}. In addition only 1\% of published data are presented with vocabularies and presented in RDF format\cite{nemreport}. Next generation research questions can be answered only by integrating data from different sources\cite{nemreport}. This brings the ultimate goal of open data movement unsettled. Especially, how large open data can be processed to provide liquid data is unresolved. Data preparation of big-open data becomes the "\textit{enabler}" of active open data analysis. The way out from this is to enable easy data transformation from legacy data to liquid format. 
 
-In this section we outline several reasons how the research presented in this paper  addresses important concerns of 
-related work 
-explain the archi
-open refine
-trifacta
-ibm dataworks
-talent 
-lightweight transformation of tabular open data to rdf
-similar solutions address the domain and what they lack and how they are related to our work
+\noindent  Open data workers are not essentially technically oriented. Data workers reported spending more than 80\% of their development time in data cleaning\cite{visualizationsandtransformationsinwrangling}\cite{Wisteria}\cite{journals/corr/KrishnanW0FG16}. Often data preparation requires writing idiosyncratic scripts like Python, Scala, Perl and R or engages tiresome manual editing. Survey says this discourages a large number of workers from working with data, as well as they spend most of their time dealing with data rather than excelling in their desired sector\cite{visualizationsandtransformationsinwrangling}. This highlights on a crucial user friendly solution.
 
+\subsection{Escalated Challenges}
+\textbf{Repeatable and Reusable cleaning}: The cleanness or quality of data data can't be decided upfront. The correctness and effectiveness of a transformation work-flow should be verified(execute on a sample of data and improve the workflow definition if necessary). Data cleaning can bring new quality issues iteratively while being cleaned. Thus, data cleaning is an inherently iterative procedure\cite{Wisteria}. A data cleaning process should be repeatedly applicable on data and provide incremental output. Data cleaning may involve trail and error instances\cite{visualizationsandtransformationsinwrangling}. A data worker should be able to roll-back to desired stage whenever required. Furthermore, same transformation process can be performed on multiple data-sets. Importantly, when a data cleaning is crowd-sourced important of capturing data alterations is heighten\cite{2011-wrangler}.  Hence, it is must to keep record of how a data had been processed during cleaning process in share-able format. 
 
-\subsection{Background}
+\textbf{Interactive cleaning}: A data worker must be able to review and refine the cleaning process seamlessly. Visual analytic research\cite{Keim08visualanalytics:} proves that tight visual interaction with user helps to unseat errors easily and quickly. Especially visualization of data helps to immediately eliminate missing values, inconsistencies and wipe out outliers\cite{visualizationsandtransformationsinwrangling}.  In open data analysis a spreadsheet-like interface suits well representing a relational table structure. This enable self-serviced data transformation process. Visualization of data cleaning process is also equally important and should be performed by general audience. It is vital that transformations can be performed just by using a self-contained user interface components than manually writing scripts. 
 
-\noindent As we mentioned earlier, important challenges during 
+\textbf{Responsive in near-real-time  and Sampling}: Interactive data transformation directly derives the need for real-time responsive user interfaces. This is possible for small data. However, processing a large data takes significant time that may be accumulated to a noticeable duration for the whole process. This will make the interaction harder and inefficient. For example, considering a scenario when a cleaning operation was performed wrongly and rolled-back, this leads to a significant waste of resources if executed on big data. Big data requires rethinking of current processes\cite{nemreport}. Correctness and Efficiency are important facets of data cleaning\cite{journals/corr/KrishnanW0FG16}. Sampling data-sets is a well-known technique of data cleaning and analysis\cite{Hellerstein08quantitativedata} for various purpose. This can be exploited in iterative data cleaning. Processing streams of small data groups can help when the data is not considered as a single batch input\cite{nemreport}. Sequential sampling (fetching an ordered subset) and random sampling (fetch subset from randomized data) can help for batch inputs. However, improper sampling can lead to wrong decisions\cite{journals/corr/KrishnanW0FG16}. For example a quantitative data may not able to spot outliers correctly if it is sampled sequentially. It will produce more accurate data if it is sampled randomly\cite{Hellerstein08quantitativedata}. Thus, a feasible mechanism to decide on sampling should be available. There is a gap in the literature to pinpoint a proper mechanism to sample data for iterative data cleansing. Few platforms\cite{2011-wrangler} \cite{Wisteria} uses sampling for interactive data cleaning. But the sampling method is unknown to the user and user is not given a choice to choose sampling mechanism.
 
-%----------------------------------------------------------------------------------------
+\textbf{Availability}: Even though data cleaning is just one big step in data analysis process, it is not an instant process. A user should be able to perform consecutive transformation on system for longer duration. The system should not have a single point of failure\cite{mesa}. Cloud computing and distributed computing paradigm has proven solutions for availability issues. Providing solutions as a service enables more availability and waives complex installation and maintenance costs.
 
-\subsection{Motivating Scenario}
-DataGraft.net, a cloud based open data sharing platform tries to address all these needs together as a service. However, it has limitations of transforming large data.
-\noindent To have a better understanding of the previously discussed challenges and approaches, the following motivating scenario has been developed: 
-introduce datagraft in detail, how it address the common needs in big picture. 
-architecture
-todays limitations in data transformation.
+\textbf{Scalability}: As we mentioned earlier open data can be small or big. The system must be able to scale according to the size of data. Currently available data cleaning solutions such as OpenRefine\cite{openrefine} and Wrangler \cite{2011-wrangler} are desktop applications, which cannot process bigger data. Further, they allocate large amount of local computing resources which doesn't allow any other operations to be performed on hosted system. This augments the need for a distributed solution of open data preparation. 
 
+\textbf{Separation between logical and physical implementations of data cleaning work-flow}: Most of the interactive data cleaning tools don't have clear separation of their logical and physical implementation of data transformation activities\cite{declarativedatacleaning}\cite{Wisteria}. In many case ETL work-flows are defined in high-level languages\cite{ETL}. This ceases from exploiting the logical query optimization. This is substantially results in inefficient and high-cost transformation work-flow for bigger data.  Logical query optimization is not possible unless otherwise the data worker consciously designs the cleaning work-flow accordingly\cite{ETL}. A automated mechanism to optimize cleaning work-flow can improve performance. 
 
-%----------------------------------------------------------------------------------------
+\textbf{Single ended solution}: The main problem that hasn't been solved is a single endpoint for open data preparations. The system should be able to support data cleaning and transformation to RDF format seamlessly. The existing solutions focuses only on a subset on problem. KARMA \cite{karma}, LinDa project tools\footnote{http://linda-project.eu/} focuses only on formulating linked data from tabular formats whereas many other leading commercial tools such as IBM DataWorks\footnote{http://www.ibm.com/analytics/us/en/technology/cloud-data-services/dataworks/} , Talend Open Studio\footnote{https://www.talend.com/products/talend-open-studio} and Pentaho Kettel \footnote{http://wiki.pentaho.com/} are focusing only on data cleaning processes. They also lack few of the open data cleaning techniques discussed above. Open data workers need an integrated and simplified solution that can help them produce quality liquid data which is in high demand nowadays. 
 
-\subsection{Discussion}
-\label{sec:Discussion}
-why this limitation
-who eliminating this can help 
-what is expected from this?
-
-%----------------------------------------------------------------------------------------
+\section{Motivating Scenario(DataGraft)}
 
 \section{Research Problem}
 
-\noindent In this work we focus on two challenges: (i) combination of the declarative and imperative approaches to the application provisioning and deployment, and (ii) continuous deployment of cloud applications. Based on this, the research problem may be formulated as follows: 
+\section{Research Questions}
 
-How to transform larger data without technical knowledge
-how interactive transformation of large files can be done in near-real-time?
+\section{Research Method}
 
-\begin{center}
-"How can we enable both, flexibility and fine-grained control, in the deployment and provisioning of multi-cloud applications, and allow efficient run-time management of such applications?"
-\end{center}
+Other requirement.
+Transformation Mapping functions should be declarative and should be reusable for other data.especially a workflow transformation structure  should be supported execute all data transformation steps for multiple sources. Schema level transformation and cleaning should be specified by declarative query and mapping language as far as possible, to enable automatic generation of the transformation code. It should be possible to invoke user-written cleaning code and special purpose tools during a data transformation workflow.  transformation steps may request user feedback . auto duplicate elimination and schema matching.
+Verification: The correctness and effectiveness of a transformation workflow and the transformation definitions should be tested and evaluated, e.g., on a sample or copy of the source data, to improve the definitions if necessary
+more work is needed on the design and implementation of the best language approach for supporting both schema and data transformations.operators such as Match, Merge or Mapping Composition have either been studied at the instance (data) or schema (metadata) level 
 
-\section{Research Questions} 
+Most of the data transformation tools don't have clear separation of logical specification of data transformation and physical implementation. \cite{declarativedatacleaning}
+todo: current systems support limited data cleaning support focusing on transformation and schema translation. should provide more support to data cleaning. data must be extracted from multiple sources and transformed n combined  during query time.  
 
-\noindent The problem addressed by this thesis rises the following questions:
+Why better than existing ETL tools? in usual ETL workflows transformations are mentioned in high-level-language. Logical query optimization is not possible unless the user designs it with consideration upfront\cite{ETL}. Lot of work for designer. Now spark catalyse code generator transforms pipe into optimized logical queries. 
 
-\begin{enumerate}
-\item  How imperative and declarative approaches can be combined? Does a combined approach furnish a more efficient and flexible solution?
+Questions: Can we use espemino as sample and ask them to give bigger data? 
+The dataset used to show in uio seminar by titi
+% As the need for open data sharing is increasing, there are some  initiatives that try  solve these needs. However, such initiatives only address a subset of needs such as either data cleaning or transformation (or any other combinations of the activities in the data sharing process\textbf{ confusing??/)}.  In this thesis, we explore how can we provide a scalable open data sharing needs as a service by eliminating current limitations. 
 
-\item  How to create a DSL for the specification of deployment plans that can be used in combination with declarative deployment topology models, and programmatically by a third party?
 
-\item  How such DSL could be used to support efficient continuous deployment of multi-cloud applications?
+% \section{Research Motivation}
 
-\end{enumerate}
+a comparative study on leading solution providers
 
-%----------------------------------------------------------------------------------------
+% Definitions  
+% Open data 
 
-\section{Research Methodology}
-In this section we explain our research methodology and develop a research work plan.
+% Linked data 
 
-%----------------------------------------------------------------------------------------
-\subsection{Methodology}
+% Data tranformation in open data : combination of data cleanging and transformation it to RDF
 
-\noindent The adopted methodology of this thesis relies on a literature survey and design science \cite{von2004design}. Literature survey covers not only publications in scientific journals but also analysis of widely used tools because provisioning and deployment processes relate more to the practical side of computer science than its theoretical underpinnings. Design science guidelines help us in the development of our solution and ensuring that our results are relevant, verifiable and appropriately evaluated.
+% Data cleaning 
+% Scalable
 
-%----------------------------------------------------------------------------------------
-\subsection{Work Plan}
-Following the discussion from the Section \ref{sec:Discussion} and, according to the research problem, we can define the initial set up for the research: the approach that we will work on must be declarative, open source and provide support for the continuous deployment. Then, the work plan to answer research questions includes the following steps:
+% Near real time 
+% Interactive transformation 
 
-\begin{enumerate}
-\item  Analyze state of the art tools and approaches for 
+% Linked Data
+% Open data is commonly shared in Linked Data format, which is defined as a set of best practices for publishing and connecting structured data on the web\cite{linkeddatasofar}.  Open governments, public administrations and other commercial organizations have recently started publishing large amount of structured data. There 
 
-\item  Choose a declarative approach for the improvement.
+% Open data is the data that can be used, re-used and redistributed by anyone without any limitations or at minimal limitations\cite{opendatahandbook}. 
 
-\item  Analyze how deployments plans are defined in imperative approaches. Extract common characteristics and limitations of languages used to define deployment plans, and create a domain-specific workflow definition language to specify such plans.
 
-\item  Integrate a chosen approach, including the continuous deployment functionality, with created DSL.
+% %----------------------------------------------------------------------------------------
 
-\end{enumerate}
+% \section{Research Motivation}
 
-\noindent The rest of the thesis is organized as follows. In Chapter 
+% In this section we outline several reasons how the research presented in this paper  addresses important concerns of 
+% related work 
+% explain the archi
+% open refine
+% karma
+% trifacta
+% ibm dataworks
+% talent 
+% lightweight transformation of tabular open data to rdf
+% similar solutions address the domain and what they lack and how they are related to our work
 
-solution analysis - state of the art spark
-Dataframe 
-feasibility test
-dataframe performace tests
-https://databricks.com/blog/2015/02/17/introducing-dataframes-in-spark-for-large-scale-data-science.html
 
-https://0x0fff.com/spark-dataframes-are-faster-arent-they/
+% \subsection{Background}
 
-implementation - Scalable transformation of open data
+% \noindent As we mentioned earlier, important challenges during 
 
-problem
-archi- should explain clearly for backend n front-end 
-solution components
-sparker
-scalable-graftwerk
-grafterizer
-deployment - possible on local and cluster 
+% %----------------------------------------------------------------------------------------
 
-evaluation
+% \subsection{Motivating Scenario}
+% DataGraft.net, a cloud based open data sharing platform tries to address all these needs together as a service. However, it has limitations of transforming large data.
+% \noindent To have a better understanding of the previously discussed challenges and approaches, the following motivating scenario has been developed: 
+% introduce datagraft in detail, how it address the common needs in big picture. 
+% architecture
+% todays limitations in data transformation.
 
-Integration n usability
 
-functional coverage- how much persisted from earlier, how much can be added newly
-consistency-
-reliability - no sandbox
-scalability
-availability
+% %----------------------------------------------------------------------------------------
 
-Performance evaluation
+% \subsection{Discussion}
+% \label{sec:Discussion}
+% why this limitation
+% who eliminating this can help 
+% what is expected from this?
 
-experiment setup
+% %----------------------------------------------------------------------------------------
 
-of single machine - oldgraftwerk , sparker on local, open refine
+% \section{Research Problem}
 
-for different file size, same pipeline
+% \noindent In this work we focus on two challenges: (i) combination of the declarative and imperative approaches to the application provisioning and deployment, and (ii) continuous deployment of cloud applications. Based on this, the research problem may be formulated as follows: 
 
-trifacta, open refine, setup on cluster
+% How to transform larger data without technical knowledge
+% how interactive transformation of large files can be done in near-real-time?
 
-conclusions
-posible transformation for big data. without limitation. can be hosted in local cluster is provided service is not enough. the limitation is eliminated. 
-technical contributions
-scientific contributions
+% \begin{center}
+% "How can we enable both, flexibility and fine-grained control, in the deployment and provisioning of multi-cloud applications, and allow efficient run-time management of such applications?"
+% \end{center}
 
-appendix
+% \section{Research Questions} 
+
+% \noindent The problem addressed by this thesis rises the following questions:
+
+% \begin{enumerate}
+% \item  How imperative and declarative approaches can be combined? Does a combined approach furnish a more efficient and flexible solution?
+
+% \item  How to create a DSL for the specification of deployment plans that can be used in combination with declarative deployment topology models, and programmatically by a third party?
+
+% \item  How such DSL could be used to support efficient continuous deployment of multi-cloud applications?
+
+% \end{enumerate}
+
+% %----------------------------------------------------------------------------------------
+
+% \section{Research Methodology}
+% In this section we explain our research methodology and develop a research work plan.
+
+% %----------------------------------------------------------------------------------------
+% \subsection{Methodology}
+
+% \noindent The adopted methodology of this thesis relies on a literature survey and design science \cite{von2004design}. Literature survey covers not only publications in scientific journals but also analysis of widely used tools because provisioning and deployment processes relate more to the practical side of computer science than its theoretical underpinnings. Design science guidelines help us in the development of our solution and ensuring that our results are relevant, verifiable and appropriately evaluated.
+
+% %----------------------------------------------------------------------------------------
+% \subsection{Work Plan}
+% Following the discussion from the Section \ref{sec:Discussion} and, according to the research problem, we can define the initial set up for the research: the approach that we will work on must be declarative, open source and provide support for the continuous deployment. Then, the work plan to answer research questions includes the following steps:
+
+% \begin{enumerate}
+% \item  Analyze state of the art tools and approaches for 
+
+% \item  Choose a declarative approach for the improvement.
+
+% \item  Analyze how deployments plans are defined in imperative approaches. Extract common characteristics and limitations of languages used to define deployment plans, and create a domain-specific workflow definition language to specify such plans.
+
+% \item  Integrate a chosen approach, including the continuous deployment functionality, with created DSL.
+
+% \end{enumerate}
+
+% \noindent The rest of the thesis is organized as follows. In Chapter 
+
+% solution analysis - state of the art spark
+% Dataframe 
+% feasibility test
+% dataframe performace tests
+% https://databricks.com/blog/2015/02/17/introducing-dataframes-in-spark-for-large-scale-data-science.html
+
+% https://0x0fff.com/spark-dataframes-are-faster-arent-they/
+
+% implementation - Scalable transformation of open data
+
+% problem
+% archi- should explain clearly for backend n front-end 
+% solution components
+% sparker
+% scalable-graftwerk
+% grafterizer
+% deployment - possible on local and cluster 
+
+% evaluation
+
+% Integration n usability
+
+% functional coverage- how much persisted from earlier, how much can be added newly
+% consistency-
+% reliability - no sandbox
+% scalability
+% availability
+
+% Performance evaluation
+
+% experiment setup
+
+% of single machine - oldgraftwerk , sparker on local, open refine
+
+% for different file size, same pipeline
+
+% trifacta, open refine, setup on cluster
+
+% conclusions
+% posible transformation for big data. without limitation. can be hosted in local cluster is provided service is not enough. the limitation is eliminated. 
+% technical contributions
+% scientific contributions
+
+% appendix
 
 
 %----------------------------------------------------------------------------------------
