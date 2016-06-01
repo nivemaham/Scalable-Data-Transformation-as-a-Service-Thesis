@@ -1,0 +1,88 @@
+% Appendix Template
+
+\chapter{Evaluation of functional coverage} % Main appendix title
+
+\label{AppendixA} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
+
+\lhead{Appendix A. \emph{Evaluation of functional coverage}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
+
+We provide the detailed result of functional coverage evaluation of Scalble-graftwerk here:
+\begin{table}[]
+\centering
+\caption{Evaluation of functional coverage of Scalble-graftwerk}
+\label{tab:functionalcoverageeval}
+\begin{tabular}{lll}
+Functionality                           & Grafter & Sparker \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Making core data}} \\
+Header as columns                       & Yes     & Yes     \\
+Specified column names                  & Yes     & Yes     \\
+Subset of columns                       & Yes     & Yes     \\
+Rename columns                          & Yes     & Yes     \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Grouping and Aggregation}} \\
+Group by single column                  & Yes     & Yes     \\
+Group by multiple column                & Yes     & Yes     \\
+Aggregation of multiple columns         & Yes     & Yes     \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Duplicate elimination}} \\
+Full duplicate elimination              & Yes     & Yes     \\
+Grouped duplicate elimination           & Yes     & Yes     \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Reshaping data}} \\
+Pivot (melt)                            & Yes     & Yes     \\
+Unpivot (melt)                          & Yes     & Yes     \\
+Split column                            & Yes     & Yes     \\
+Merge columns                           & Yes     & Yes     \\
+Shift row                               & Yes     & No      \\
+Shift column                            & Yes     & No      \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Sorting data}} \\
+Sorting using multiple columns          & Yes     & Yes     \\
+Ascending and Descending order          & Yes     & Yes     \\
+Support for numeric, alphabetical, Date & Yes     & Yes     \\
+Sort based on length of data            & Yes     & No      \\
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Evaluation of functional coverage of Scalble-graftwerk}
+\label{tab:cont}
+\begin{tabular}{lll}
+Functionality                           & Grafter & Sparker \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Add column}} \\
+Add column with value                   & Yes     & Yes     \\
+Add column with functions               & Yes     & Yes     \\
+Add column with custom functions        & Yes     & Yes     \\             
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Select or Drop columns}} \\
+Select/Drop based on column names       & Yes     & Yes     \\
+Select/Drop based on column indices     & Yes     & Yes     \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Making core data}} \\
+Derive column from single column        & Yes     & Yes     \\
+Derive column from multiple columns     & Yes     & No      \\
+Derive with cast                        & Yes     & Yes     \\
+Derive with string manipulation         & Yes     & Yes     \\
+Derive with numeric operations          & Yes     & Yes     \\
+Derive with collective operations       & Yes     & Yes     \\
+Derive with custom utilities            & Yes     & No      \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Alter based on column}} \\
+Cast a column                           & Yes     & Yes     \\
+Alter with string manipulation          & Yes     & Yes     \\
+Alter with numeric operations           & Yes     & Yes     \\
+Alter with collective operations        & Yes     & Yes     \\
+Alter with custom utilities             & Yes     & No      \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Query data}} \\
+Filter with string matching             & Yes     & Yes     \\
+Filter with regular expression          & Yes     & Yes     \\
+Filter with logical expressions         &         & Yes     \\
+Filter with custom functions            & Yes     & No      \\
+Take/Drop data with index               & Yes     & Yes     \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Alter data}} \\
+Add row                                 & Yes     & Yes     \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Advanced features}} \\
+Custom function as pipeline             & Yes     & No      \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} RDF creation}} \\
+Single order graph                      & Yes     & Yes     \\
+Complex mapping                         & Yes     & No      \\
+\multicolumn{3}{c}{{\color[rgb]{0.210,0.175,0.47} Input formats supported}} \\
+CSV                                     & Yes     & Yes     \\
+*SV                                     & No      & Yes     \\
+JSON                                    & No      & Yes    
+\end{tabular}
+\end{table}
