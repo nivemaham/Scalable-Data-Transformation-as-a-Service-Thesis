@@ -63,8 +63,8 @@
 
 \textsc{\Large Master Thesis}\\[0.5cm] % Thesis type
 
-\HRule \\[0.4cm] % Horizontal line
-{\huge \bfseries Scalable Data Transformation Service for Open Data }\\[0.4cm] % Thesis title
+\HRule \\[0.5cm] % Horizontal line
+{\huge \bfseries Scalable Data Transformation as a Service for Interactive Data Preparation }\\[0.5cm] % Thesis title
 \HRule \\[1.8cm] % Horizontal line
 
 \includegraphics[width=15cm]{Figures/Uni}\\[1.5cm] % University name
@@ -100,24 +100,28 @@
 
 \addtotoc{Abstract} % Add the "Abstract" page entry to the Contents
 
-% \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+\abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+Open data publishing and analysis are gaining popularity with governments, researchers and business organizations. Open data publishing requires data to be cleaned, converted into machine-readable formats (such as Linked-data), and publish them on the Web. To implement this process, users require tools that allow interactiveness and, at the same time, scalability with respect to the processed data. However, existing platforms that enable open data publishing focus only on a specific subset of domain requirements and/or provide solutions with too many limitations. Therefore, an integrated, simplified solution that can cater to open data preparation requirements, can scale with increasing data volumes, and can be accessed and used in an interactive manner. 
 
-% }
+In this thesis, we identify the requirements and unresolved challenges to provide a viable solution for open data preparation tools by studying related works, research observations and state-of-the-art tools and mechanisms. Moreover, we suggest a suitable data ingestion technique and programming model to process large uncleaned data. We propose a scalable open-data preparation solution as a service that can efficiently and effectively support interactive data preparation,and in the same time provides an interchangeable data abstraction. Furthermore, we implement data cleaning and linked-data generation operations that using distributed-data-parallel model. To support these operations, we implement a proof-of-concept dynamic execution engine that executes these data transformations interactively.
+
+Finally, through an evaluation over our proof-of-concept implementation we show the solution's scalability, and suggest approaches to achieve the best performance of the scalable transformation execution engine.
+}
 
 \clearpage % Start a new page
 
-%----------------------------------------------------------------------------------------
-%	ACKNOWLEDGEMENTS
-%----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
+% 	ACKNOWLEDGEMENTS
+% ----------------------------------------------------------------------------------------
 
 \setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
 
-% \acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+\acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
-% \noindent The research leading to these results has received funding from the 
+\noindent The research leading to these results has received funding from the European Union Horizon 2020 program under proDataMarket project.
 
-% \noindent In addition, I am very grateful to
-% }
+\noindent In addition, I am very grateful to Dr. Dumitru Roman and Mr. Nikolay Nikolov for the deep discussions, advises on decision making and resolving different issues relate to thesis and for their continuous encouragement;  to Prof. Kostas Magoutis, for valuable comments and guidelines on solution approaches and to improve the quality of this thesis; to Antoine Pultier and Dina Sukhobok for helping me with solving problems relate to implementations and to the whole DataGraft team at SINTEF.
+}
 \clearpage % Start a new page
 
 %----------------------------------------------------------------------------------------
@@ -126,14 +130,14 @@
 
 \pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
 
-% \lhead{\emph{Contents}} % Set the left side page header to "Contents"
-% \tableofcontents % Write out the Table of Contents
+\lhead{\emph{Contents}} % Set the left side page header to "Contents"
+\tableofcontents % Write out the Table of Contents
 
-% \lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
-% \listoffigures % Write out the List of Figures
+\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
+\listoffigures % Write out the List of Figures
 
-% \lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
-% \listoftables % Write out the List of Tables
+\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
+\listoftables % Write out the List of Tables
 
 
 %----------------------------------------------------------------------------------------
@@ -148,12 +152,12 @@
 % Uncomment the lines as you write the chapters
 
 \input{./Chapters/Chapter1}
-% \input{./Chapters/Chapter2} 
-% \input{./Chapters/Chapter3}
-% \input{./Chapters/Chapter4} 
-% \input{./Chapters/Chapter5} 
-%\input{./Chapters/Chapter6} 
-%\input{./Chapters/Chapter7} 
+\input{./Chapters/Chapter2} 
+\input{./Chapters/Chapter3}
+\input{./Chapters/Chapter4} 
+\input{./Chapters/Chapter5} 
+\input{./Chapters/Chapter6} 
+% \input{./Chapters/Chapter7} 
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES

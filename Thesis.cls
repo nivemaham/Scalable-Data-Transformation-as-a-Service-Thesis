@@ -179,7 +179,7 @@
 %	defined as \examname above so you cite it as \examname
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Scalable Data Transformation Service for Open Data} % Your thesis title - this is used in the title and abstract
+\thesistitle{Scalable Data Transformation as a Service for Interactive Data Preparation} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------  
 \supervisor{Prof. Kostas \textsc{Magoutis}} % You supervisor's name - this is used in the title page
 %-------------------------------------------------   
@@ -196,12 +196,12 @@
 \keywords{} % Keywords for your thesis - this is not currently used anywhere in the template, cite it with \keywordnames if you want it
 %-------------------------------------------------   
 \university{\texorpdfstring{ % Your university's URL
-                {University of Crete, Stuttgart University, Tilburg University}} % Your university's name - this is currently used in the title page
-                {University of Crete, Stuttgart University, Tilburg University}}
+                {University of Stuttgart , University of Crete, Tilburg University}} % Your university's name - this is currently used in the title page
+                {University of Stuttgart , University of Crete, Tilburg University}}
 %-------------------------------------------------   
 \UNIVERSITY{\texorpdfstring{ % Your university's URL
-                {UNIVERSITY OF CRETE, STUTTGART UNIVERSITY, TILBURG UNIVERSITY}} % Your university's name in capitals - this is currently used in the abstract page
-                {UNIVERSITY OF CRETE, STUTTGART UNIVERSITY, TILBURG UNIVERSITY}}
+                {University of Stuttgart , University of Crete, Tilburg University}} % Your university's name in capitals - this is currently used in the abstract page
+                {University of Stuttgart , University of Crete, Tilburg University}}
 %-------------------------------------------------                
   
 

@@ -1,0 +1,43 @@
+% Chapter 6
+
+\chapter{Conclusion} % Main chapter title
+\label{Chapter6} % For referencing the chapter elsewhere, use \ref{Chapter6} 
+
+\lhead{Chapter 6. \emph{Conclusion}} % This is for the header on each page - perhaps a shortened title
+
+%--------------------------------------------------------------------------------------------------------------
+
+By using suitable techniques and best practices with appropriate data ingestion and programming model, we have provided an innovative Scalable Open Data Transformation as a Service, that can be easily used by open data workers including users without high technical skills. We designed a system architecture and process work-flow that enables an automated, integrated solution to provide interactive open data transformation. We summarize our main features and contributions as below:
+\begin{itemize}
+\item Batch processing using in-memory processing for iterative and interactive processing of large files - Through our literature study and a descriptive analysis, we showed that batch processing suits to process the large stored files to perform data cleaning operations to produce precise results. Further, in-memory processing suits iterative and interactive processing well by eliminating high I/O for storing and loading intermediate results.
+\item Distributed open data preparation functions using Spark - We created a scalable open data preparation framework that has an interchangeable data abstraction that can process tabular data and convert to graph using Apache Spark's libraries and extensions. Moreover, we implemented complex data cleaning operations displayed in Table \ref{fig:features} and provided simple APIs that can be easily integrated and used to create pipelines of data transformation operations. This reduces the overhead of learning distributed processing of tabular and graph-based data. 
+\item Dynamic execution engine of data transformation - We built an automated, transformation execution engine by using a dynamic language Clojure. It allows to create a data transformation as pipelines of transformation functions, built using a DSL that extends distributed data preparation techniques. This engine is exposed via Web Service APIs, that allows interoperability and loose coupling between client and data preparation system. This engine is 4x times faster than traditional data cleaning system in a single hosted machine, by utilizing parallelization. In addition it is capable of processing larger input data, where the maximum size of input file converges to allocated memory. 
+\item Scalable open data preparation as a Service - We created solution that can be deployed on a distributed environment as a service. Through the evaluation, we show that it can scale-out or scale-in according to allocated  executor resources. Secondly, we present that the maximum performance of the solution can be achieved by scaling-out with more executors. However, every job takes a minimum amount of execution time according to current parallelism. The performance can be further improved by allocating more executor-cores to utilize concurrent execution of tasks. Despite, maximum threshold of allocated executor-cores is 5-6 that can improve performance, since executor-cores passing the maximum threshold introduce overheads of processing concurrent threads on HDFS. By utilizing distributed shared memory and cluster of computing resources our solution can process large volume of input data, such that the size of maximum input data that can be processed converges to the distributed shared memory that can be allocated.
+\item Automated, integrated solution to provide interactive open data transformation - We demonstrated an integration of our scalable data transformation as a service, to provide near-real-time interactive data cleaning and RDF creation. By providing improved work-flow that allows sampling and caching that process is optimized and capable of guiding user to perform data preparation of large data. Finally, this is the only solution as a service that provides interactive platform to build transformation pipeline and data cleaning and RDF generation altogether as a single ended solution. 
+\end{itemize}
+Finally, as secondary contributions we, we provide open sourced implementations of our solution that is designed and developed using component based architecture. Hence, they can be used as a service or as separate solution component by user. Further, it is beneficial to users who would like to take advantages from scalable open data transformation without using service based solution to avoid security and policy issues, by simply deploying in local cluster environment. We have also implemented most sought after data cleaning requirements that are not provided by DataFrame API, that can be reused by relevant users. 
+
+Future work of this research could include implementation of completely featured RDF mapping and generation. Flexibility and customization of data cleaning functions are important to meet technically oriented users. Our DSL should be improved further to allow customization of data cleaning functions. Since this solution involved multiple solution components, providing an installation pack or a container that consist all solution components installed is essential for users to make advantage of our solution instantly.  
+
+% Through use of appropriate use of technology and techniques, we have provided an innovative and user friendly solution to scalable open data preparation. We designed a system architecture and a process that enable the a service based open data transformation that is automated interactively guide user to prepare linked data from raw data. We summarize its main contributions below:
+% \begin{itemize}
+% \item Data ingesting technique and Programming model to process iterative and interactive operations
+% \item distributed open data preparation techniques and scalable open data preparations as a service x time faster than traditional processing and capacity to process converge to allocated memory size
+% \item The settings for the maximum performance of the application. 
+% \item Automated, integrated solution as a service for interactive open data transformation. 
+% \item Work-flow optimization for interactive processing of large data. 
+% \end{itemize}
+
+% Futurework, 
+% cont impl of adv rdf
+% improve dsl to support custom function
+% backend cluster improvements
+% provide installation pack
+
+
+% batch produces accurate result, near-real-time
+% spark's prog model n rdd helps
+% major impediment eliminated
+% x times faster in local n cluster
+% user friendly
+% unique
