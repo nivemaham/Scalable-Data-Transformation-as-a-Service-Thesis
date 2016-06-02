@@ -61,7 +61,7 @@ Scalable-Graftwerk was deployed using local-mode with \textit{ spark.master = lo
 
 Experiments were performed on data of casualties from road accidents during 2005-2014 in Great Britain from Road Safety Data published on open data portal of Great Britain\footnote{https://data.gov.uk/dataset/road-accidents-safety-data}. The data is originally 94.9 MB, which is sampled into number of samples of smaller size and merged to create bigger data for the evaluation in the range of 9.3 MB to 120.7 MB. In total, we performed 12 experiments with different sized data-sets. A sample data transformation was created to perform data profiling, to remove two unnecessary columns and to do some word transpositions on specific columns. Equivalent transformation scripts were created for Scalable-Graftwerk, Grafwerk and Wrangler using corresponding interfaces. 
 \begin{center}
-	\includegraphics[width=35em]{./Figures/single-node}
+	\includegraphics[width=38em]{./Figures/single-node}
 	\begin{figure}[htbp]
     \caption{Single node analysis}
     \label{fig:singlenode}
@@ -99,7 +99,7 @@ Figure \ref{fig:cluster} depicts how the our test bed was setup.   two main para
 
 A Spark application consists of a single-driver process and a set of executor processes scattered across nodes on the cluster. The driver process  is responsible for the high-level control flow of work that needs to be done. The executor processes are responsible for executing this work, in the form of tasks. When a Spark application is submitted using park-submit using \textit{yarn-client} mode, a central master application request YARN resource manager for resource containers. YARN Manager informs master application with available resources according to request. The client's master application directly communicates containers to schedule jobs. 
 \begin{center}
-	\includegraphics[width=38em]{./Figures/scalable-graftwer-in-yarn-cluster}
+	\includegraphics[width=33em]{./Figures/scalable-graftwer-in-yarn-cluster}
 	\begin{figure}[htbp]
     \caption{Scalable-graftwerk's execution model on a YARN Cluster}
     \label{fig:yarn-cluster-model}
@@ -149,7 +149,7 @@ The first experiment was conducted by deploying the application with a different
 \end{center}
 Figure \ref{fig:scale} shows that Scalable-graftwerk can automatically scale-out on different nodes when number of executors are changed. This lets the application to utilize the resources available on a cluster
 \begin{center}
-	\includegraphics[width=35em]{./Figures/executors2}
+	\includegraphics[width=38em]{./Figures/executors2}
 	\begin{figure}[htbp]
     \caption{Scalability analysis of Scalable-Graftwerk}
     \label{fig:executors}
@@ -166,15 +166,15 @@ It can be clearly seen that performance of the application increases till a mini
  
 \subsubsection{\textbf{Concurrent execution of multiple tasks}}
 Apart from scalability experiment discussed in Section \ref{scalability-exp} , we conducted another experiments to analyze whether we can  improve the performance of Scalable-graftwerk further. We set up more sets of experiments by changing the number of cores allocated for each executors from 1 to 12, with fixed number of executors and fixed number of driver cores. 
+
+To analyze the behavior of concurrent task execution, we conducted 3 sets of experiments with 2, 5  and 7 executor instances and 2 cores for driver process. Since the average execution time of requests after the first request represents application's performance than execution time of first request after a SparkContext is initialized, we recorded the average execution time of 3 requests after the first request of an initiated context.
 \begin{center}
-	\includegraphics[width=35em]{./Figures/executor-cores2}
+	\includegraphics[width=38em]{./Figures/executor-cores2}
 	\begin{figure}[htbp]
     \caption{Analysis of concurrent task processing of executors}
     \label{fig:executor-cores}
 	\end{figure}
 \end{center}
-To analyze the behavior of concurrent task execution, we conducted 3 sets of experiments with 2, 5  and 7 executor instances and 2 cores for driver process. Since the average execution time of requests after the first request represents application's performance than execution time of first request after a SparkContext is initialized, we recorded the average execution time of 3 requests after the first request of an initiated context. 
-
 Figure \ref{fig:executor-cores} illustrates the observations of these experiments.  It is clear that, there is an exponential growth of performance from 1 core to 6 cores per executor. From 6 executors to 12 executors the performance is not significantly improved. It is rather unchanged with small differences ( 2 seconds ). The reason behind this behavior is HDFS has some performance limitations of concurrent task processing. When more than 5-6 concurrent tasks are executed on an executor process, the performance of the application is not improved as expected, since an overhead of processing too many concurrent tasks are introduced on HDFS. It is wise to keep the number of concurrent tasks (executor-cores per executor) below this limit for the optimal performance of this application.  
 
 Moreover, the improvement in execution time increases with indirect-proportion of number of executors. Further it can be clearly seen, the impact of having more executors improve performance of the application, regardless of parallelization of concurrent tasks per executor. This behavior assures the claim made from previous experiment in Section \ref{scalability-exp}. 
