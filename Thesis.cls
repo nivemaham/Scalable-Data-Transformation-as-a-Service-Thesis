@@ -196,12 +196,12 @@
 \keywords{} % Keywords for your thesis - this is not currently used anywhere in the template, cite it with \keywordnames if you want it
 %-------------------------------------------------   
 \university{\texorpdfstring{ % Your university's URL
-                {University of Stuttgart , University of Crete, Tilburg University}} % Your university's name - this is currently used in the title page
-                {University of Stuttgart , University of Crete, Tilburg University}}
+                {University of Stuttgart, University of Crete, Tilburg University}} % Your university's name - this is currently used in the title page
+                {University of Stuttgart, University of Crete, Tilburg University}}
 %-------------------------------------------------   
 \UNIVERSITY{\texorpdfstring{ % Your university's URL
-                {University of Stuttgart , University of Crete, Tilburg University}} % Your university's name in capitals - this is currently used in the abstract page
-                {University of Stuttgart , University of Crete, Tilburg University}}
+                {University of Stuttgart, University of Crete, Tilburg University}} % Your university's name in capitals - this is currently used in the abstract page
+                {University of Stuttgart, University of Crete, Tilburg University}}
 %-------------------------------------------------                
   
 

@@ -101,11 +101,11 @@
 \addtotoc{Abstract} % Add the "Abstract" page entry to the Contents
 
 \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
-Open data publishing and analysis are gaining popularity with governments, researchers and business organizations. Open data publishing requires data to be cleaned, converted into machine-readable formats (such as Linked-data), and publish them on the Web. To implement this process, users require tools that allow interactiveness and, at the same time, scalability with respect to the processed data. However, existing platforms that enable open data publishing focus only on a specific subset of domain requirements and/or provide solutions with too many limitations. Therefore, an integrated, simplified solution that can cater to open data preparation requirements, can scale with increasing data volumes, and can be accessed and used in an interactive manner. 
+Open data publishing and analysis are gaining popularity with governments, researchers and business organizations. Open data publishing requires data to be cleaned, converted into machine-readable formats (such as Linked data), and published on the Web. To implement this process, users require tools that allow interactiveness and, at the same time, scalability with respect to the processed data. However, existing platforms that enable open data publishing focus only on a specific subset of domain requirements and/or provide solutions with too many limitations. Therefore, an integrated, simplified solution that can cater to open data preparation requirements, can scale with increasing data volumes, and can be accessed and used in an interactive manner. 
 
-In this thesis, we identify the requirements and unresolved challenges to provide a viable solution for open data preparation tools by studying related works, research observations and state-of-the-art tools and mechanisms. Moreover, we suggest a suitable data ingestion technique and programming model to process large uncleaned data. We propose a scalable open-data preparation solution as a service that can efficiently and effectively support interactive data preparation,and in the same time provides an interchangeable data abstraction. Furthermore, we implement data cleaning and linked-data generation operations that using distributed-data-parallel model. To support these operations, we implement a proof-of-concept dynamic execution engine that executes these data transformations interactively.
+In this thesis, we identify the requirements and unresolved challenges to provide a viable solution for open data preparation tools by studying related works, research observations and state-of-the-art tools and mechanisms. We propose a scalable open-data preparation solution as a service that can efficiently and effectively support interactive data preparation, and in the same time provides an interchangeable data abstraction using suitable data ingestion technique and in-memory-computing to process large uncleaned data. Furthermore, we implement data cleaning and linked data generation operations that using distributed-data-parallel model. To support these operations, we implement a proof-of-concept with a dynamic execution engine that executes these data transformations interactively.
 
-Finally, through an evaluation over our proof-of-concept implementation we show the solution's scalability, and suggest approaches to achieve the best performance of the scalable transformation execution engine.
+Finally, through an evaluation of our proof-of-concept implementation we show the solution's scalability, interactivity and suggest approaches to achieve the best performance of the scalable transformation execution engine.
 }
 
 \clearpage % Start a new page
@@ -120,7 +120,7 @@ Finally, through an evaluation over our proof-of-concept implementation we show 
 
 \noindent The research leading to these results has received funding from the European Union Horizon 2020 program under proDataMarket project.
 
-\noindent In addition, I am very grateful to Dr. Dumitru Roman and Mr. Nikolay Nikolov for the deep discussions, advises on decision making and resolving different issues relate to thesis and for their continuous encouragement;  to Prof. Kostas Magoutis, for valuable comments and guidelines on solution approaches and to improve the quality of this thesis; to Antoine Pultier and Dina Sukhobok for helping me with solving problems relate to implementations and to the whole DataGraft team at SINTEF.
+\noindent In addition, I am very grateful to Dr. Dumitru Roman and Mr. Nikolay Nikolov for the deep discussions, advises on decision making and resolving different issues relate to thesis and for their continuous encouragement;  to Prof. Kostas Magoutis, for valuable comments and guidelines on solution approaches and to improve the quality of this thesis; to Antoine Pultier and Dina Sukhobok for helping me with solving problems related to implementations and to the whole DataGraft team at SINTEF.
 }
 \clearpage % Start a new page
 
@@ -153,7 +153,7 @@ Finally, through an evaluation over our proof-of-concept implementation we show 
 
 \input{./Chapters/Chapter1}
 \input{./Chapters/Chapter2} 
-\input{./Chapters/Chapter3}
+% \input{./Chapters/Chapter3}
 \input{./Chapters/Chapter4} 
 \input{./Chapters/Chapter5} 
 \input{./Chapters/Chapter6} 
